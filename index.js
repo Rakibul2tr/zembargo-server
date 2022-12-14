@@ -1,7 +1,8 @@
 const express = require('express');
 var jwt = require('jsonwebtoken');
 let privateKey='privateKey';
-const env= require('dotenv').config();
+const env= require('dotenv');
+    env.config();
 const app = express();
 const port =  5000;
 const cors = require('cors');
