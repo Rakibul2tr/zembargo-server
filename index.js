@@ -1,6 +1,7 @@
 const express = require('express');
 var jwt = require('jsonwebtoken');
 let privateKey='privateKey';
+const env= require('dotenv').config();
 const app = express();
 const port =  5000;
 const cors = require('cors');
@@ -15,7 +16,7 @@ const objectId = require('mongodb').ObjectId;
 
 //8LIUZAQKvmtjOFWR   //  zembargo
 
-const uri = 'mongodb+srv://zembargo:8LIUZAQKvmtjOFWR@cluster0.smwb1.mongodb.net/?retryWrites=true&w=majority';
+const uri = `mongodb+srv://${process.env.PROCCES_NAME}:${process.env.PROCCES_PASSWORD}@cluster0.smwb1.mongodb.net/?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 console.log(uri);
 async function run() {
